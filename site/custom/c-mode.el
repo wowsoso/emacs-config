@@ -1,0 +1,5 @@
+(add-hook  'c-mode-common-hook (lambda()                                  
+    (c-set-style "k&r")
+    (setq c-basic-offset 4)
+    (c-toggle-auto-newline 1)
+))
