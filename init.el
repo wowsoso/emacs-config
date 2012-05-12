@@ -3,9 +3,6 @@
 
 (setq make-backup-files nil)
 
-;;; Start the emacs server so that emacsclient can be used.
-(server-start)
-
 ;;; Add the site directory to load path.
 (defvar *roderic-site-dir* (expand-file-name "~/.emacs.d/site/"))
 (add-to-list 'load-path *roderic-site-dir*)
@@ -50,18 +47,7 @@
 (setq uniquify-ignore-buffers-re "^\\*") ; ignore special buffers
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
-
-;;; Clojure
-(add-load-path "clojure-mode")
-(require 'clojure-mode)
-(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
-;;; TextMate
-(add-load-path "textmate-mode")
-(require 'textmate)
-(textmate-mode)
-(global-set-key "\C-c\C-t" 'textmate-goto-file)
-(global-set-key "\C-c\C-e" 'textmate-clear-cache)
 
 ;;; Paredit
 (require 'paredit)
@@ -74,25 +60,16 @@
 (autoload 'scheme48-mode "scheme48"
   "Major mode for editing scheme with scheme48." t)
 
-;;; Zencoding
-(require 'zencoding-mode)
-(add-hook 'sgml-mode-hook 'zencoding-mode)
-
-;;; Tuareg
-(add-to-list 'auto-mode-alist '("\\.ml[iylp]?" . tuareg-mode))
-(autoload 'tuareg-mode "tuareg" "Major mode for editing Caml code" t)
-(autoload 'camldebug "camldebug" "Run the Caml debugger" t)
-(dolist (ext '(".cmo" ".cmx" ".cma" ".cmxa" ".cmi"))
-  (add-to-list 'completion-ignored-extensions ext))
-
-;;; Load markdown-mode on markdown files.
-(require 'markdown-mode)
-(add-to-list 'auto-mode-alist
-             (cons "\\.md\\(wn\\)?$" 'markdown-mode))
 
 ;;; Coffee script.
 (require 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+
+;;; Javascript
+(autoload #'espresso-mode "espresso" "Start espresso-mode" t)
+(add-to-list 'auto-mode-alist '("\\.js$" . espresso-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . espresso-mode))
+(setq espresso-indent-level 2)
 
 ;;; Load textile-mode on textile files.
 (require 'textile-mode)
@@ -114,5 +91,10 @@
                 scheme-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
-;;; "Profile" loading.
-(load-library (read-string "Which profile to load?: "))
+;;;yasnippet
+(require 'yasnippet-bundle)
+
+
+;;; custom lib
+(mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
+     (list "fullscreen.el" "dict.el" "charpair.el" "c-mode.el"))
