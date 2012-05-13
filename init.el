@@ -94,7 +94,11 @@
 ;;;yasnippet
 (require 'yasnippet-bundle)
 
+;;;magit
+(add-load-path "magit")
+(require 'magit)
 
 ;;; custom lib
+         
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
-     (list "fullscreen.el" "dict.el" "charpair.el" "c-mode.el"))
+        (list "fullscreen.el" "dict.el" "charpair.el" "c-mode.el"))
