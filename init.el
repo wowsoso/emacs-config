@@ -97,6 +97,7 @@
 ;;;magit
 (add-load-path "magit")
 (require 'magit)
+(require 'magit-blame)
 
 ;;; custom lib
          
