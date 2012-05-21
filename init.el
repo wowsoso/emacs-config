@@ -75,14 +75,6 @@
 (require 'textile-mode)
 (add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))
 
-;;; Global color theme stuff.
-(require 'color-theme)
-
-;;; Tango color theme.
-(autoload 'color-theme-tango "color-theme-tango"
-  "Tango color theme for emacs"
-  t)
-(color-theme-tango)
 
 ;;; Auto-Fill for these modes.
 (dolist (hook '(text-mode-hook
