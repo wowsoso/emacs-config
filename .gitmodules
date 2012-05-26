@@ -1,9 +1,3 @@
-[submodule "site/textmate-mode"]
-	path = site/textmate-mode
-	url = git://github.com/defunkt/textmate.el.git
-[submodule "site/clojure-mode"]
-	path = site/clojure-mode
-	url = https://github.com/technomancy/clojure-mode.git
 [submodule "weibo.emacs"]
-	path = weibo.emacs
+	path = /site/weibo.emacs
 	url = https://github.com/austin-----/weibo.emacs.git

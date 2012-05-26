@@ -103,6 +103,11 @@
 (global-set-key (kbd "C-,") 'ctl-,-map)
 (define-key ctl-,-map (kbd "gst") 'magit-status)
 
+;;;weibo
+(add-load-path "weibo.emacs")
+(require 'weibo)
+
+
 ;;; custom lib
          
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
