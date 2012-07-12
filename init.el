@@ -91,6 +91,11 @@
                 scheme-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
+;;;pymacs
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+
 ;;;yasnippet
 (require 'yasnippet-bundle)
 
@@ -127,4 +132,4 @@
 ;;; custom lib
          
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
-        (list "fullscreen.el" "dict.el" "charpair.el" "c-mode.el"))
+        (list "screen.el" "dict.el" "charpair.el" "c-mode.el" "perl.el"))

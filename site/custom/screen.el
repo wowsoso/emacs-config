@@ -10,3 +10,8 @@
 (global-set-key [f11] 'toggle-fullscreen)
 (add-hook 'after-make-frame-functions 'toggle-fullscreen)
 (toggle-fullscreen)
+
+
+(global-set-key [f5] 'revert-buffer)
+
+(global-set-key (kbd "RET") '(lambda () (interactive) (progn (paredit-newline) (whitespace-cleanup))))
