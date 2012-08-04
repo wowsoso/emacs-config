@@ -87,37 +87,27 @@
 ;;; Auto-Fill for these modes.
 (dolist (hook '(text-mode-hook
                 tuareg-mode-hook
-                python-mode-hook
                 scheme-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
-;;;python mode
-(require 'python-mode)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;; ;;;python mode
+;; (require 'python-mode)
+;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
 ;;;pymacs
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
+;; (require 'pymacs)
+;; (pymacs-load "ropemacs" "rope-")
+;; (setq ropemacs-enable-autoimport t)
 
-;;;ipython
-(setq ipython-command "/usr/bin/ipython")
-(require 'ipython)
+;; ;;;ipython
+;; (setq ipython-command "/usr/bin/ipython")
+;; (require 'ipython)
 
 ;;;lambda mode
 ;; (require 'lambda-mode)
 ;; (add-hook 'python-mode-hook #'lambda-mode 1)
 ;; (setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
 
-; anything
-(require 'anything)
-(require 'anything-ipython)
-(when (require 'anything-show-completion nil t)
-   (use-anything-show-completion 'anything-ipython-complete
-                                 '(length initial-pattern)))
-
-(require 'python-pep8)
-(require 'python-pylint)
 
 ;;;comint
 (require 'comint)
@@ -166,11 +156,24 @@
 (ibus-define-common-key ?\S-\s nil)
 (global-set-key (kbd "S-SPC") 'ibus-toggle)
 
+;;w3m
+(require 'w3m-load)
+
+;; sawfish mode settings
+;; load the first sawfish.el or sawfish.elc file found in the load-path
+(autoload 'sawfish-mode "sawfish" "sawfish-mode" t)
+;; this tells emacs to automatically activate the sawfish-mode whenever open
+;; file with "sawfishrc" or "jl" (John Lisp) suffix
+(add-to-list 'auto-mode-alist '(".*sawfishrc\\'" . sawfish-mode ))
+(add-to-list 'auto-mode-alist '(".sawfish/rc\\'" . sawfish-mode ))
+(add-to-list 'auto-mode-alist '(".*\\.jl\\'" . sawfish-mode ))
+;; if you're using ECB, tells to use the compilation buffer to show long
+;; sawfish messages
+
 
 ;;; custom lib
-
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
-        (list "screen.el" "dict.el" "languages.el" "coding.el"))
+        (list "screen.el" "dict.el"  "coding.el"))
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
