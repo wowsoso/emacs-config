@@ -90,43 +90,51 @@
                 scheme-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
-;; ;;;python mode
-;; (require 'python-mode)
-;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;;;python mode
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;;;pymacs
-;; (require 'pymacs)
-;; (pymacs-load "ropemacs" "rope-")
-;; (setq ropemacs-enable-autoimport t)
+(require 'pymacs)
 
-;; ;;;ipython
-;; (setq ipython-command "/usr/bin/ipython")
-;; (require 'ipython)
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+
+;;;ipython
+(setq ipython-command "/usr/bin/ipython")
+(require 'ipython)
 
 ;;;lambda mode
-;; (require 'lambda-mode)
-;; (add-hook 'python-mode-hook #'lambda-mode 1)
-;; (setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
+(require 'lambda-mode)
+(add-hook 'python-mode-hook #'lambda-mode 1)
+(setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
 
+;;;anything
+(require 'anything)
+(require 'anything-ipython)
+(when (require 'anything-show-completion nil t)
+  (use-anything-show-completion 'anything-ipython-complete
+                                '(length initial-pattern)))
 
-;;;comint
-(require 'comint)
-(define-key comint-mode-map (kbd "M-") 'comint-next-input)
-(define-key comint-mode-map (kbd "M-") 'comint-previous-input)
-(define-key comint-mode-map [down] 'comint-next-matching-input-from-input)
-(define-key comint-mode-map [up] 'comint-previous-matching-input-from-input)
+;;;pep8 & pylint
+(require 'python-pep8)
+(require 'python-pylint)
 
 ;;;autopair
 (autoload 'autopair-global-mode "autopair" nil t)
 (autopair-global-mode)
 (dolist (hook '(scheme-mode-hook
                 emacs-lisp-mode-hook
+                python-lisp-mode-hook
                 lisp-mode-hook))
   (add-hook hook #'(lambda () (setq autopair-dont-activate t))))
 
 ;;;yasnippet
 (require 'yasnippet-bundle)
-
+(require 'yasnippet)
 ;;;magit
 (add-load-path "magit")
 (require 'magit)
@@ -173,7 +181,8 @@
 
 ;;; custom lib
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
-        (list "screen.el" "dict.el"  "coding.el"))
+        (list "screen.el" "dict.el"  "coding.el" "languages.el"))
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
