@@ -10,3 +10,4 @@
 ;;  '(lambda
 ;;     (filename)
 ;;     (insert-file-contents filename nil nil nil)))
+(setq auto-save-default nil)

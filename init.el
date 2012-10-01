@@ -90,38 +90,49 @@
                 scheme-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
-;;;python mode
-(require 'python-mode)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
-;;;pymacs
-(require 'pymacs)
+(add-to-list 'load-path "~/.emacs.d/site/emacs-for-python/") ;; tell where to load the various files
+(require 'epy-setup)      ;; It will setup other loads, it is required!
+(require 'epy-python)     ;; If you want the python facilities [optional]
+(require 'epy-completion) ;; If you want the autocompletion settings [optional]
+(require 'epy-editing)    ;; For configurations related to editing [optional]
+(require 'epy-bindings)   ;; For my suggested keybindings [optional]
+(require 'epy-nose)       ;; For nose integration
 
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
 
-;;;ipython
-(setq ipython-command "/usr/bin/ipython")
-(require 'ipython)
 
-;;;lambda mode
-(require 'lambda-mode)
-(add-hook 'python-mode-hook #'lambda-mode 1)
-(setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
+;; ;;;python mode
+;; (require 'python-mode)
+;; (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;; (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
-;;;anything
-(require 'anything)
-(require 'anything-ipython)
-(when (require 'anything-show-completion nil t)
-  (use-anything-show-completion 'anything-ipython-complete
-                                '(length initial-pattern)))
+;; ;;;pymacs
+;; (require 'pymacs)
 
-;;;pep8 & pylint
-(require 'python-pep8)
-(require 'python-pylint)
+;; (autoload 'pymacs-apply "pymacs")
+;; (autoload 'pymacs-call "pymacs")
+;; (pymacs-load "ropemacs" "rope-")
+;; (setq ropemacs-enable-autoimport t)
+
+;; ;;;ipython
+;; (setq ipython-command "/usr/bin/ipython")
+;; (require 'ipython)
+
+;; ;;;lambda mode
+;; (require 'lambda-mode)
+;; (add-hook 'python-mode-hook #'lambda-mode 1)
+;; (setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
+
+;; ;;;anything
+;; (require 'anything)
+;; (require 'anything-ipython)
+;; (when (require 'anything-show-completion nil t)
+;;   (use-anything-show-completion 'anything-ipython-complete
+;;                                 '(length initial-pattern)))
+
+;; ;;;pep8 & pylint
+;; (require 'python-pep8)
+;; (require 'python-pylint)
 
 ;;;autopair
 (autoload 'autopair-global-mode "autopair" nil t)
@@ -132,9 +143,9 @@
                 lisp-mode-hook))
   (add-hook hook #'(lambda () (setq autopair-dont-activate t))))
 
-;;;yasnippet
-(require 'yasnippet-bundle)
-(require 'yasnippet)
+;; ;;;yasnippet
+;; (require 'yasnippet-bundle)
+;; (require 'yasnippet)
 ;;;magit
 (add-load-path "magit")
 (require 'magit)
