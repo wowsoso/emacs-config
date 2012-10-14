@@ -1,12 +1,4 @@
-;; sdcv 翻译单词
-;; 原 author: pluskid
-;; 修改： jianlee
-;; 调用 stardict 的命令行接口来查辞典
-;; 如果选中了 region 就查询 region 的内容，
-;; 否则就查询当前光标所在的词
-
-
-(global-set-key (kbd "C-c d") 'kid-sdcv-to-buffer)
+(global-set-key (kbd "C-`") 'kid-sdcv-to-buffer)
 (defun kid-sdcv-to-buffer ()
   (interactive)
   (let ((word (if mark-active
@@ -17,8 +9,6 @@
     (set-buffer (get-buffer-create "*sdcv*"))
     (buffer-disable-undo)
     (erase-buffer)
-    ; 在没有创建 *sdcv* windows 之前检查是否有分屏(是否为一个window)
-    ; 缺憾就是不能自动开出一个小屏幕，自己注销
     (if (null (cdr (window-list)))
         (setq onewindow t)
       (setq onewindow nil))

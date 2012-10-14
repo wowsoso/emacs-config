@@ -1,3 +1,6 @@
 [submodule "site/yasnippet"]
 	path = site/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "site/o-blog"]
+	path = site/o-blog
+	url = https://github.com/renard/o-blog.git

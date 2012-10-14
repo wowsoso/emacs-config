@@ -110,4 +110,4 @@ smtpmail-text-buffer))
 ;;;;;;;;;;;;;;;;;;;;
 (auto-image-file-mode)
 (setq mm-inline-large-images t)
-(add-to-list 'mm-attachment-override-types "image/*")
+;(add-to-list 'mm-attachment-override-types "image/*")
