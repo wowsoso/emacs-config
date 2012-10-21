@@ -4,3 +4,21 @@
 [submodule "site/o-blog"]
 	path = site/o-blog
 	url = https://github.com/renard/o-blog.git
+[submodule "site/multiple-cursors.el"]
+	path = site/multiple-cursors.el
+	url = git://github.com/magnars/multiple-cursors.el.git
+[submodule "site/s.el"]
+	path = site/s.el
+	url = git://github.com/magnars/s.el.git
+[submodule "site/expand-region.el"]
+	path = site/expand-region.el
+	url = git://github.com/magnars/expand-region.el.git
+[submodule "site/mark-multiple.el"]
+	path = site/mark-multiple.el
+	url = git://github.com/magnars/mark-multiple.el.git
+[submodule "site/zencoding"]
+	path = site/zencoding
+	url = git://github.com/rooney/zencoding.git
+[submodule "site/swank-js"]
+	path = site/swank-js
+	url = git://github.com/ivan4th/swank-js.git

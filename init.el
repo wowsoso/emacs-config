@@ -35,6 +35,8 @@
 (setq uniquify-ignore-buffers-re "^\\*") ; ignore special buffers
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
+(require 'delsel)
+
 ;;; Paredit
 (require 'paredit)
 (dolist (hook '(scheme-mode-hook
@@ -83,12 +85,51 @@
 (epy-setup-checker "pyflakes %f")
 
 
+(add-to-list 'load-path "~/.emacs.d/site/newsticker/")
+(autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
+(autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
 
+(load-file "~/.emacs.d/site/s.el/s.el")
+(add-to-list 'load-path "~/.emacs.d/site/multiple-cursors.el/")
+(add-to-list 'load-path "~/.emacs.d/site/mark-multiple.el")
+(add-to-list 'load-path "~/.emacs.d/site/expand-region.el")
+(add-to-list 'load-path "~/.emacs.d/site/zencoding")
 
+(require 'zencoding-mode)
+(require 'expand-region)
+(require 'multiple-cursors)
+(require 'inline-string-rectangle)
+(require 'mark-more-like-this)
 
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
+(global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
+(delete-selection-mode 1)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
 
 ;;; custom lib
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
-        (list  "dict.el"  "coding.el" "tools.el" "gnus.el" "org.el" "display.el"))
+        (list   "dict.el"  "coding.el" "tools.el" "gnus.el" "org.el" "display.el"))
 
+(mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/defuns/" file))) (cddr (directory-files "~/.emacs.d/site/custom/defuns")))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(newsticker-url-list (quote (("base" "http://www.linux.org/feeds/rss/1" nil nil nil) ("hardware" "http://www.linux.org/feeds/rss/2" nil nil nil) ("installation" "http://www.linux.org/feeds/rss/3" nil nil nil) ("tips" "http://www.linux.org/feeds/rss/4" nil nil nil) ("other" "http://www.linux.org/feeds/rss/5" nil nil nil) ("networking" "http://www.linux.org/feeds/rss/6" nil nil nil) ("security" "http://www.linux.org/feeds/rss/7" nil nil nil) ("servers" "http://www.linux.org/feeds/rss/8" nil nil nil) ("shell" "http://www.linux.org/feeds/rss/9" nil nil nil) ("desktop" "http://www.linux.org/feeds/rss/10" nil nil nil) ("linux" "www.ibm.com/developerworks/views/linux/rss/libraryview.jsp" nil nil nil) ("cloud" "http://www.ibm.com/developerworks/views/cloud/rss/libraryview.jsp" nil nil nil))))
+ '(w3m-key-binding (quote info)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
