@@ -49,3 +49,21 @@
 (define-prefix-command 'ctl-,-map)
 (global-set-key (kbd "C-,") 'ctl-,-map)
 (define-key ctl-,-map (kbd "gst") 'magit-status)
+
+
+
+
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+
+
+;;; custom lib
+(mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/language/" file)))
+        (list "c.el"))
