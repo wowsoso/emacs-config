@@ -83,12 +83,19 @@
 (epy-setup-checker "pyflakes %f")
 
 
+(load-file "~/.emacs.d/site/multi-shell.el")
+(require 'multi-shell)
+(global-set-key (kbd "C-;") 'multi-shell-prev)
+(global-set-key (kbd "C-'") 'multi-shell-next)
+(global-set-key  [C-return] 'multi-shell-current-directory)
+(global-set-key  [C-M-return] 'multi-shell-new)
 
-
-
+    `multi-shell-new'                create a new shell buffer.
+     `multi-shell-next'               switch to next shell buffer.
+     `multi-shell-prev'               switch to previous shell buffer.
+     `multi-shell-current-directory'  create a new shell with current-dir
 
 
 ;;; custom lib
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
         (list  "dict.el"  "coding.el" "tools.el" "gnus.el" "org.el" "display.el"))
-
