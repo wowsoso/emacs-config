@@ -114,6 +114,39 @@
 (delete-selection-mode 1)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
+
+
+(autoload 'nethack "nethack_el-0.9.5" "Play Nethack." t)
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-compat.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-keys.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-api.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-cmd.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-tiles.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-keys-dvorak.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack.el")
+(load-file "~/.emacs.d/site/nethack_el-0.9.5/slashem-tiles.el")
+(setq nethack-program "nethack")
+
+
+
+
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/site/sage-mode/emacs"))
+(require 'sage "sage")
+(setq sage-command "~/.sage/sage-5.3/sage")
+
+;; If you want sage-view to typeset all your output and have plot()
+;; commands inline, uncomment the following line and configure sage-view:
+;; (require 'sage-view "sage-view")
+;; (add-hook 'sage-startup-after-prompt-hook 'sage-view)
+;; You can use commands like
+;; (add-hook 'sage-startup-after-prompt-hook 'sage-view-disable-inline-output)
+;; (add-hook 'sage-startup-after-prompt-hook 'sage-view-disable-inline-plots)
+;; to enable some combination of features
+
+(require 'irfc)
+
+
 ;;; custom lib
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
         (list   "dict.el"  "coding.el" "tools.el" "gnus.el" "org.el" "display.el"))

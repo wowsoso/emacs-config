@@ -63,3 +63,7 @@
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
 
+
+;;; custom lib
+(mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/language/" file)))
+        (list "c.el"))

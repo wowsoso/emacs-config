@@ -35,4 +35,8 @@
                    (find-file life_path)))
 
 
-(setq org-log-done 'note)
+
+(setq org-todo-keywords
+      '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE")))
+
+(setq org-log-done 'time)
