@@ -46,11 +46,9 @@
 (add-load-path "magit")
 (require 'magit)
 (require 'magit-blame)
-(define-prefix-command 'ctl-,-map)
-(global-set-key (kbd "C-,") 'ctl-,-map)
-(define-key ctl-,-map (kbd "gst") 'magit-status)
-
-
+(define-prefix-command 'ctl-\,-map)
+(global-set-key (kbd "C-,") 'ctl-\,-map)
+(define-key ctl-\,-map (kbd "gst") 'magit-status)
 
 
 (defun eval-and-replace ()

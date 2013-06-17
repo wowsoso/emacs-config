@@ -18,7 +18,7 @@
 
 
 (srecode-minor-mode 1)
-(set srecode-map-load-path "~/site/cede")
+;(set srecode-map-load-path "~/site/cede")
 
 (global-cedet-m3-minor-mode 1)
 (define-key cedet-m3-mode-map "\C-c " 'cedet-m3-menu-kbd)
