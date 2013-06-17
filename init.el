@@ -85,69 +85,42 @@
 (epy-setup-checker "pyflakes %f")
 
 
-(load-file "~/.emacs.d/site/multi-shell.el")
-(require 'multi-shell)
-(global-set-key (kbd "C-;") 'multi-shell-prev)
-(global-set-key (kbd "C-'") 'multi-shell-next)
-(global-set-key  [C-return] 'multi-shell-current-directory)
-(global-set-key  [C-M-return] 'multi-shell-new)
+;(load-file "~/.emacs.d/site/multi-shell.el")
+;(require 'multi-shell)
+;(global-set-key (kbd "C-;") 'multi-shell-prev)
+;(global-set-key (kbd "C-'") 'multi-shell-next)
+;(global-set-key  [C-return] 'multi-shell-current-directory)
+;(global-set-key  [C-M-return] 'multi-shell-new)
 
 (add-to-list 'load-path "~/.emacs.d/site/newsticker/")
 (autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
 (autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
 
-(load-file "~/.emacs.d/site/s.el/s.el")
-(add-to-list 'load-path "~/.emacs.d/site/multiple-cursors.el/")
-(add-to-list 'load-path "~/.emacs.d/site/mark-multiple.el")
-(add-to-list 'load-path "~/.emacs.d/site/expand-region.el")
-(add-to-list 'load-path "~/.emacs.d/site/zencoding")
+;(load-file "~/.emacs.d/site/s.el/s.el")
+;(add-to-list 'load-path "~/.emacs.d/site/multiple-cursors.el/")
+;(add-to-list 'load-path "~/.emacs.d/site/mark-multiple.el")
+;(add-to-list 'load-path "~/.emacs.d/site/expand-region.el")
+;(add-to-list 'load-path "~/.emacs.d/site/zencoding")
 
-(require 'zencoding-mode)
-(require 'expand-region)
-(require 'multiple-cursors)
-(require 'inline-string-rectangle)
-(require 'mark-more-like-this)
+;(require 'zencoding-mode)
+;(require 'expand-region)
+;(require 'multiple-cursors)
+;(require 'inline-string-rectangle)
+;(require 'mark-more-like-this)
 
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
-(global-set-key (kbd "C-c n") 'cleanup-buffer)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;; (global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
+;; (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
+;; (global-set-key (kbd "C-c n") 'cleanup-buffer)
+;; (global-set-key (kbd "C-=") 'er/expand-region)
+;; (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 (delete-selection-mode 1)
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
-
-
-(autoload 'nethack "nethack_el-0.9.5" "Play Nethack." t)
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-compat.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-keys.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-api.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-cmd.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-tiles.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack-keys-dvorak.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/nethack.el")
-(load-file "~/.emacs.d/site/nethack_el-0.9.5/slashem-tiles.el")
-(setq nethack-program "nethack")
-
-
-
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/site/sage-mode/emacs"))
-(require 'sage "sage")
-(setq sage-command "~/.sage/sage-5.3/sage")
-
-;; If you want sage-view to typeset all your output and have plot()
-;; commands inline, uncomment the following line and configure sage-view:
-;; (require 'sage-view "sage-view")
-;; (add-hook 'sage-startup-after-prompt-hook 'sage-view)
-;; You can use commands like
-;; (add-hook 'sage-startup-after-prompt-hook 'sage-view-disable-inline-output)
-;; (add-hook 'sage-startup-after-prompt-hook 'sage-view-disable-inline-plots)
-;; to enable some combination of features
 
 (require 'ibus)
 ;; Turn on ibus-mode automatically after loading .emacs
