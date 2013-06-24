@@ -167,3 +167,5 @@
 (custom-set-variables
  '(w3m-key-binding (quote info)))
 (custom-set-faces)
+
+(require 'tramp)

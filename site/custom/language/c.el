@@ -44,3 +44,6 @@
 
 (add-hook 'speedbar-load-hook (lambda () (require 'semantic/sb)))
 (add-hook 'semantic-init-hooks (lambda () (imenu-add-to-menubar "TAGS")))
+
+(setq c-default-style "k&r"
+          c-basic-offset 4)

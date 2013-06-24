@@ -6,6 +6,7 @@
 	    (local-set-key "\C-ca" 'nosetests-all)
 	    (local-set-key "\C-cM" 'nosetests-module) ;; C-c m conflicts w/ pylint
 	    (local-set-key "\C-c." 'nosetests-one)
+            (local-set-key "\C-cA" 'nosetests-current-dir)
 	    (local-set-key "\C-cpa" 'nosetests-pdb-all)
 	    (local-set-key "\C-cpm" 'nosetests-pdb-module)
 	    (local-set-key "\C-cp." 'nosetests-pdb-one))

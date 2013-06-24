@@ -102,6 +102,12 @@
   (interactive)
   (run-nose buffer-file-name debug))
 
+(defun nosetests-current-dir (&optional debug failed)
+  "run current tests"
+  (interactive)
+  (run-nose "./" debug failed))
+
+
 (defun nosetests-pdb-module ()
   (interactive)
   (nosetests-module t))
