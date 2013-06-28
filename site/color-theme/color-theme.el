@@ -68,7 +68,7 @@
 	    (not (facep 'tool-bar)))
        (put 'tool-bar 'face-alias 'toolbar)))
 
-(defvar color-theme-xemacs-p (and (featurep 'xemacs)
+(defvar color-theme-xemacs-p (and (featurep 'xemacs) 
                                   (string-match "XEmacs" emacs-version))
   "Non-nil if running XEmacs.")
 
@@ -204,6 +204,34 @@ only on those frames that are not using a local color theme."
   "*Determines wether new color themes are installed on top of each other.
 If non-nil, installing a color theme will undo all settings made by
 previous color themes."
+  :type 'boolean
+  :group 'color-theme)
+
+(defcustom color-theme-directory nil
+  "Directory where we can find additionnal themes (personnal).
+Note that there is at least one directory shipped with the official
+color-theme distribution where all contributed themes are located.
+This official selection can't be changed with that variable. 
+However, you still can decide to turn it on or off and thus,
+not be shown with all themes but yours."
+  :type '(repeat string)
+  :group 'color-theme)
+
+(defcustom color-theme-libraries (directory-files 
+                                  (concat 
+                                   (file-name-directory (locate-library "color-theme"))
+                                   "/themes") t "^color-theme")
+  "A list of files, which will be loaded in color-theme-initialize depending
+on `color-theme-load-all-themes' value. 
+This allows a user to prune the default color-themes (which can take a while
+to load)."
+  :type '(repeat string)
+  :group 'color-theme)
+
+(defcustom color-theme-load-all-themes t
+  "When t, load all color-theme theme files
+as presented by `color-theme-libraries'. Else
+do not load any of this themes."
   :type 'boolean
   :group 'color-theme)
 
@@ -429,6 +457,7 @@ as well.  A color theme library is in itself not complete, it must be
 used as part of another color theme to be useful.  Thus, color theme
 libraries are mainly useful for color theme authors."
   (interactive "P")
+  (unless color-theme-initialized (color-theme-initialize))
   (switch-to-buffer (get-buffer-create color-theme-buffer-name))
   (setq buffer-read-only nil)
   (erase-buffer)
@@ -452,7 +481,7 @@ libraries are mainly useful for color theme authors."
 	  (library (nth 3 theme))
 	  (desc))
       (when (or (not library) arg)
-	(setq desc (format "%-23s %s"
+	(setq desc (format "%-23s %s" 
 			   (if library (concat name " [lib]") name)
 			   author))
 	(put-text-property 0 (length desc) 'color-theme func desc)
@@ -748,15 +777,15 @@ OLD is the current setting, NEW is the setting inherited from."
 		more-atts (cddr more-atts))
 	  ;; Color-theme assumes that no value is ever 'unspecified.
 	  (cond ((eq att ':height); cumulative effect!
-		 (setq atts (plist-put atts
-				       ':height
+		 (setq atts (plist-put atts 
+				       ':height 
 				       (color-theme-spec-resolve-height
-					(plist-get atts att)
+					(plist-get atts att) 
 					val))))
 		;; Default: Only put if it has not been specified before.
 		((not (plist-get atts att))
 		 (setq atts (cons att (cons val atts))))
-
+		  
 ))))
     atts))
 ;; (color-theme-spec-resolve-inheritance '(:bold t))
@@ -1593,12 +1622,12 @@ frame-parameter settings of previous color themes."
 ;; Use this to define themes
 (defmacro define-color-theme (name author description &rest forms)
   (let ((n name))
-    `(progn
+    `(progn 
        (add-to-list 'color-themes
                     (list ',n
                           (upcase-initials
                            (replace-in-string
-                            (replace-in-string
+                            (replace-in-string 
                              (symbol-name ',n) "^color-theme-" "") "-" " "))
                           ,author))
        (defun ,n ()
@@ -1606,10 +1635,33 @@ frame-parameter settings of previous color themes."
 	 (interactive)
          ,@forms))))
 
+
+;;; FIXME: is this useful ??
+;;;###autoload
+(defun color-theme-initialize ()
+  "Initialize the color theme package by loading color-theme-libraries."
+  (interactive)
+
+  (cond ((and (not color-theme-load-all-themes)
+              color-theme-directory)
+         (setq color-theme-libraries 
+               (directory-files color-theme-directory t "^color-theme")))
+        (color-theme-directory
+         (push (cdr (directory-files color-theme-directory t "^color-theme")) 
+               color-theme-libraries)))
+  (dolist (library color-theme-libraries)
+    (load library)))
+
+(when nil
+  (setq color-theme-directory "themes/"
+        color-theme-load-all-themes nil)
+  (color-theme-initialize)
+)
 ;; TODO: I don't like all those function names cluttering up my namespace.
-;; Instead, a hashtable for the color-themes should be created. Now that
+;; Instead, a hashtable for the color-themes should be created. Now that 
 ;; define-color-theme is around, it should be easy to change in just the
-;; one place.
+;; one place. 
+
 
 (provide 'color-theme)
 
