@@ -14,6 +14,7 @@
 (require 'epy-completion)
 (require 'epy-editing)
 (require 'epy-nose)
+(require 'epy-trial)
 (require 'epy-bindings)
 
 

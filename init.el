@@ -63,14 +63,14 @@
 (require 'textile-mode)
 (add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))
 
-;;; Global color theme stuff.
-(require 'color-theme)
+;; ;;; Global color theme stuff.
+;; (require 'color-theme)
 
-;;; Tango color theme.
-(autoload 'color-theme-tango "color-theme-tango"
-  "Tango color theme for emacs"
-  t)
-(color-theme-tango)
+;; ;;; Tango color theme.
+;; (autoload 'color-theme-tango "color-theme-tango"
+;;   "Tango color theme for emacs"
+;;   t)
+;; (color-theme-tango)
 
 ;;; Auto-Fill for these modes.
 (dolist (hook '(text-mode-hook
@@ -79,11 +79,11 @@
   (add-hook hook 'turn-on-auto-fill))
 
 
-(add-to-list 'load-path "~/.emacs.d/site/emacs-for-python/") ;; tell where to load the various files
+(add-to-list 'load-path "~/.emacs.d/site/emacs-for-python/") ;; tell where to load he various files
 (require 'epy-init)
 (epy-setup-ipython)
 (epy-setup-checker "pyflakes %f")
-
+(add-to-list 'auto-mode-alist '("\\.tac$" . python-mode))
 
 ;(load-file "~/.emacs.d/site/multi-shell.el")
 ;(require 'multi-shell)
@@ -153,6 +153,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ede-project-directories (quote ("/home/sosowang/lab/edeproject/include" "/home/sosowang/lab/edeproject/src" "/home/sosowang/lab/edeproject")))
  '(newsticker-url-list (quote (("base" "http://www.linux.org/feeds/rss/1" nil nil nil) ("hardware" "http://www.linux.org/feeds/rss/2" nil nil nil) ("installation" "http://www.linux.org/feeds/rss/3" nil nil nil) ("tips" "http://www.linux.org/feeds/rss/4" nil nil nil) ("other" "http://www.linux.org/feeds/rss/5" nil nil nil) ("networking" "http://www.linux.org/feeds/rss/6" nil nil nil) ("security" "http://www.linux.org/feeds/rss/7" nil nil nil) ("servers" "http://www.linux.org/feeds/rss/8" nil nil nil) ("shell" "http://www.linux.org/feeds/rss/9" nil nil nil) ("desktop" "http://www.linux.org/feeds/rss/10" nil nil nil) ("linux" "www.ibm.com/developerworks/views/linux/rss/libraryview.jsp" nil nil nil) ("cloud" "http://www.ibm.com/developerworks/views/cloud/rss/libraryview.jsp" nil nil nil))))
  '(w3m-key-binding (quote info)))
 (custom-set-faces
@@ -164,8 +165,15 @@
 
 (add-load-path "w3m")
 (require 'w3m)
-(custom-set-variables
- '(w3m-key-binding (quote info)))
-(custom-set-faces)
+
+
 
 (require 'tramp)
+
+(add-load-path "color-theme")
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-infodoc)
+
+(require 'chm-view)
+(setq browse-url-browser-function 'w3m-browse-url)

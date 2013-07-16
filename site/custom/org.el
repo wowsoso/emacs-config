@@ -40,3 +40,8 @@
       '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE")))
 
 (setq org-log-done 'time)
+
+(setq org-ditaa-jar-path "/usr/bin/ditaa")
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t)))
