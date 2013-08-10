@@ -174,6 +174,3 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-infodoc)
-
-(require 'chm-view)
-(setq browse-url-browser-function 'w3m-browse-url)
