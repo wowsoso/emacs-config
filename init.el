@@ -175,9 +175,6 @@
 (color-theme-initialize)
 (color-theme-infodoc)
 
-(require 'chm-view)
-(setq browse-url-browser-function 'w3m-browse-url)
-
 (load-file "~/.emacs.d/site/graphviz-dot-mode.el")
 (add-hook 'find-file-hook (lambda()
                             (if (string= "dot" (file-name-extension
