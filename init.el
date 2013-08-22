@@ -177,3 +177,15 @@
 
 (require 'chm-view)
 (setq browse-url-browser-function 'w3m-browse-url)
+
+(load-file "~/.emacs.d/site/graphviz-dot-mode.el")
+(add-hook 'find-file-hook (lambda()
+                            (if (string= "dot" (file-name-extension
+                                                buffer-file-name))
+                                (progn
+                                  (message "Enabling Setings for dot-mode")
+                                  (setq fill-column 1000)
+                                  (base-auto-pair)
+                                  (local-set-key (kbd "<C-f6>") 'compile)
+                                  )
+                              )))

@@ -45,3 +45,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((ditaa . t)))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)))
