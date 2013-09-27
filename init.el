@@ -155,6 +155,7 @@
  ;; If there is more than one, they won't work right.
  '(ede-project-directories (quote ("/home/sosowang/lab/edeproject/include" "/home/sosowang/lab/edeproject/src" "/home/sosowang/lab/edeproject")))
  '(newsticker-url-list (quote (("base" "http://www.linux.org/feeds/rss/1" nil nil nil) ("hardware" "http://www.linux.org/feeds/rss/2" nil nil nil) ("installation" "http://www.linux.org/feeds/rss/3" nil nil nil) ("tips" "http://www.linux.org/feeds/rss/4" nil nil nil) ("other" "http://www.linux.org/feeds/rss/5" nil nil nil) ("networking" "http://www.linux.org/feeds/rss/6" nil nil nil) ("security" "http://www.linux.org/feeds/rss/7" nil nil nil) ("servers" "http://www.linux.org/feeds/rss/8" nil nil nil) ("shell" "http://www.linux.org/feeds/rss/9" nil nil nil) ("desktop" "http://www.linux.org/feeds/rss/10" nil nil nil) ("linux" "www.ibm.com/developerworks/views/linux/rss/libraryview.jsp" nil nil nil) ("cloud" "http://www.ibm.com/developerworks/views/cloud/rss/libraryview.jsp" nil nil nil))))
+ '(org-toodledo-folder-support-mode (quote heading))
  '(w3m-key-binding (quote info)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
