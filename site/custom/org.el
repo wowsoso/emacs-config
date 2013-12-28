@@ -49,3 +49,7 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((dot . t)))
+
+(require 'table)
+(add-hook 'text-mode-hook 'table-recognize)
+(add-hook 'org-mode-hook 'table-recognize)

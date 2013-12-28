@@ -25,3 +25,6 @@
 [submodule "site/org-toodledo"]
 	path = site/org-toodledo
 	url = https://github.com/christopherjwhite/org-toodledo.git
+[submodule "site/org-ehtml"]
+	path = site/org-ehtml
+	url = https://github.com/eschulte/org-ehtml.git
