@@ -191,3 +191,6 @@
 
 (when (and (require 'edit-server nil t) (daemonp))
   (edit-server-start))
+(add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
+(autoload 'systemtap-mode "systemtap-mode.el")
+(require 'yasnippet)

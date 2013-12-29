@@ -1,0 +1,6 @@
+# name: probe kernel function (...).return {}
+# key: pkfr
+# --
+probe kernel.function (${1:}).return {
+    ${2:}
+}
