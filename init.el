@@ -6,6 +6,12 @@
   (add-to-list 'load-path (concat *roderic-site-dir* path)))
 
 
+(add-to-list 'load-path "~/.emacs.d/elpa/org-8.2/lisp")
+(add-to-list 'load-path "~/.emacs.d/elpa/org-8.2/contrib/lisp" t)
+
+(require 'org)
+
+
 ;;; Convenient way to open files and switch buffers.
 (ido-mode t)
 
@@ -153,7 +159,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ede-project-directories (quote ("/home/sosowang/lab/edeproject/include" "/home/sosowang/lab/edeproject/src" "/home/sosowang/lab/edeproject")))
+ '(ede-project-directories (quote ("/home/sosowang/github/lab/mqtts" "/home/sosowang/lab/edeproject/include" "/home/sosowang/lab/edeproject/src" "/home/sosowang/lab/edeproject")))
  '(newsticker-url-list (quote (("base" "http://www.linux.org/feeds/rss/1" nil nil nil) ("hardware" "http://www.linux.org/feeds/rss/2" nil nil nil) ("installation" "http://www.linux.org/feeds/rss/3" nil nil nil) ("tips" "http://www.linux.org/feeds/rss/4" nil nil nil) ("other" "http://www.linux.org/feeds/rss/5" nil nil nil) ("networking" "http://www.linux.org/feeds/rss/6" nil nil nil) ("security" "http://www.linux.org/feeds/rss/7" nil nil nil) ("servers" "http://www.linux.org/feeds/rss/8" nil nil nil) ("shell" "http://www.linux.org/feeds/rss/9" nil nil nil) ("desktop" "http://www.linux.org/feeds/rss/10" nil nil nil) ("linux" "www.ibm.com/developerworks/views/linux/rss/libraryview.jsp" nil nil nil) ("cloud" "http://www.ibm.com/developerworks/views/cloud/rss/libraryview.jsp" nil nil nil))))
  '(org-toodledo-folder-support-mode (quote heading))
  '(w3m-key-binding (quote info)))
