@@ -1,0 +1,6 @@
+# name: probe kernel function (...) {}
+# key: pkf
+# --
+probe kernel.function (${1:}) {
+    ${2:}
+}

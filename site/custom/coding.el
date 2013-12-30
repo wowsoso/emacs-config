@@ -65,3 +65,7 @@
 ;;; custom lib
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/language/" file)))
         (list "c.el"))
+
+
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 4)

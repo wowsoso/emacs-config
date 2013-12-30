@@ -1,0 +1,6 @@
+# name: probe kernel function (...).call {}
+# key: pkfc
+# --
+probe kernel.function (${1:}).call {
+    ${2:}
+}
