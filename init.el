@@ -180,7 +180,8 @@
 (add-load-path "color-theme")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-infodoc)
+;; (color-theme-infodoc)
+(color-theme-bharadwaj-slate)
 
 (load-file "~/.emacs.d/site/graphviz-dot-mode.el")
 (add-hook 'find-file-hook (lambda()
