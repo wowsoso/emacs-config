@@ -28,3 +28,6 @@
 [submodule "site/org-ehtml"]
 	path = site/org-ehtml
 	url = https://github.com/eschulte/org-ehtml.git
+[submodule "site/django-mode"]
+	path = site/django-mode
+	url = https://github.com/myfreeweb/django-mode.git
