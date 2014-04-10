@@ -71,3 +71,5 @@
 (setq default-tab-width 4)
 
 (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(global-set-key [f1] 'magit-status)
