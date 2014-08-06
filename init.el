@@ -151,3 +151,8 @@
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
 (autoload 'systemtap-mode "systemtap-mode.el")
 (require 'yasnippet)
+
+
+;;; nasm
+(autoload 'nasm-mode "~/.emacs.d/nasm-mode.el" "" t)
+(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
