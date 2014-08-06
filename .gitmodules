@@ -31,6 +31,3 @@
 [submodule "site/django-mode"]
         path = site/django-mode
         url = https://github.com/myfreeweb/django-mode.git
-[submodule "site/org-trello"]
-	path = site/org-trello
-	url = https://github.com/org-trello/org-trello.git
