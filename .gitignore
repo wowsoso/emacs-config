@@ -7,3 +7,10 @@ eshell
 session.*
 semanticdb
 w3m
+/.#note.org
+/.emacs.desktop
+/.emacs.desktop.lock
+/.mc-lists.el
+/ac-comphist.dat
+/ede-projects.el
+/srecode-map.el

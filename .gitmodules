@@ -23,11 +23,11 @@
         path = site/swank-js
         url = git://github.com/ivan4th/swank-js.git
 [submodule "site/org-toodledo"]
-	path = site/org-toodledo
-	url = https://github.com/christopherjwhite/org-toodledo.git
+        path = site/org-toodledo
+        url = https://github.com/christopherjwhite/org-toodledo.git
 [submodule "site/org-ehtml"]
-	path = site/org-ehtml
-	url = https://github.com/eschulte/org-ehtml.git
+        path = site/org-ehtml
+        url = https://github.com/eschulte/org-ehtml.git
 [submodule "site/django-mode"]
-	path = site/django-mode
-	url = https://github.com/myfreeweb/django-mode.git
+        path = site/django-mode
+        url = https://github.com/myfreeweb/django-mode.git

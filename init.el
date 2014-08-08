@@ -50,14 +50,6 @@
                 lisp-mode-hook))
   (add-hook hook 'enable-paredit-mode))
 
-;;; Scheme48
-(autoload 'scheme48-mode "scheme48"
-  "Major mode for editing scheme with scheme48." t)
-
-
-;;; Coffee script.
-(require 'coffee-mode)
-(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 
 ;;; Javascript
 (autoload #'espresso-mode "espresso" "Start espresso-mode" t)
@@ -68,15 +60,6 @@
 ;;; Load textile-mode on textile files.
 (require 'textile-mode)
 (add-to-list 'auto-mode-alist '("\\.textile\\'" . textile-mode))
-
-;; ;;; Global color theme stuff.
-;; (require 'color-theme)
-
-;; ;;; Tango color theme.
-;; (autoload 'color-theme-tango "color-theme-tango"
-;;   "Tango color theme for emacs"
-;;   t)
-;; (color-theme-tango)
 
 ;;; Auto-Fill for these modes.
 (dolist (hook '(text-mode-hook
@@ -91,16 +74,6 @@
 (epy-setup-checker "pyflakes %f")
 (add-to-list 'auto-mode-alist '("\\.tac$" . python-mode))
 
-;(load-file "~/.emacs.d/site/multi-shell.el")
-;(require 'multi-shell)
-;(global-set-key (kbd "C-;") 'multi-shell-prev)
-;(global-set-key (kbd "C-'") 'multi-shell-next)
-;(global-set-key  [C-return] 'multi-shell-current-directory)
-;(global-set-key  [C-M-return] 'multi-shell-new)
-
-(add-to-list 'load-path "~/.emacs.d/site/newsticker/")
-(autoload 'newsticker-start "newsticker" "Emacs Newsticker" t)
-(autoload 'newsticker-show-news "newsticker" "Emacs Newsticker" t)
 
 (load-file "~/.emacs.d/site/s.el/s.el")
 (add-to-list 'load-path "~/.emacs.d/site/multiple-cursors.el/")
@@ -128,29 +101,9 @@
 (add-hook 'sgml-mode-hook 'zencoding-mode)
 
 
-(require 'ibus)
-;; Turn on ibus-mode automatically after loading .emacs
-(add-hook 'after-init-hook 'ibus-mode-on)
-;; Use C-SPC for Set Mark command
-(ibus-define-common-key ?\C-\s nil)
-;; Use C-/ for Undo command
-(ibus-define-common-key ?\C-/ nil)
-;; Change cursor color depending on IBus status
-(setq ibus-cursor-color '("red" "blue" "limegreen"))
-;; Use S-SPC to toggle input status
-(ibus-define-common-key ?\S-\s nil)
-(global-set-key (kbd "S-SPC") 'ibus-toggle)
-
-(require 'irfc)
-
-(when (locate-library "edit-server")
-  (require 'edit-server)
-  (setq edit-server-new-frame nil)
-  (edit-server-start))
-
 ;;; custom lib
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/" file)))
-        (list  "dict.el"  "coding.el" "tools.el" "gnus.el" "org.el" "display.el"))
+        (list  "dict.el"  "coding.el" "tools.el" "display.el"))
 
 (mapcar (lambda (file)  (load-file (concat "~/.emacs.d/site/custom/defuns/" file))) (cddr (directory-files "~/.emacs.d/site/custom/defuns")))
 
@@ -160,7 +113,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ede-project-directories (quote ("/home/sosowang/github/lab/mqtts" "/home/sosowang/lab/edeproject/include" "/home/sosowang/lab/edeproject/src" "/home/sosowang/lab/edeproject")))
- '(newsticker-url-list (quote (("base" "http://www.linux.org/feeds/rss/1" nil nil nil) ("hardware" "http://www.linux.org/feeds/rss/2" nil nil nil) ("installation" "http://www.linux.org/feeds/rss/3" nil nil nil) ("tips" "http://www.linux.org/feeds/rss/4" nil nil nil) ("other" "http://www.linux.org/feeds/rss/5" nil nil nil) ("networking" "http://www.linux.org/feeds/rss/6" nil nil nil) ("security" "http://www.linux.org/feeds/rss/7" nil nil nil) ("servers" "http://www.linux.org/feeds/rss/8" nil nil nil) ("shell" "http://www.linux.org/feeds/rss/9" nil nil nil) ("desktop" "http://www.linux.org/feeds/rss/10" nil nil nil) ("linux" "www.ibm.com/developerworks/views/linux/rss/libraryview.jsp" nil nil nil) ("cloud" "http://www.ibm.com/developerworks/views/cloud/rss/libraryview.jsp" nil nil nil))))
+
  '(org-toodledo-folder-support-mode (quote heading))
  '(w3m-key-binding (quote info)))
 (custom-set-faces
@@ -174,8 +127,6 @@
 (require 'w3m)
 
 
-
-(require 'tramp)
 
 (add-load-path "color-theme")
 (require 'color-theme)
@@ -196,8 +147,12 @@
                               )))
 (put 'set-goal-column 'disabled nil)
 
-(when (and (require 'edit-server nil t) (daemonp))
-  (edit-server-start))
+
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
 (autoload 'systemtap-mode "systemtap-mode.el")
 (require 'yasnippet)
+
+
+;;; nasm
+(autoload 'nasm-mode "~/.emacs.d/nasm-mode.el" "" t)
+(add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
