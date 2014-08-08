@@ -114,7 +114,6 @@
  ;; If there is more than one, they won't work right.
  '(ede-project-directories (quote ("/home/sosowang/github/lab/mqtts" "/home/sosowang/lab/edeproject/include" "/home/sosowang/lab/edeproject/src" "/home/sosowang/lab/edeproject")))
 
- '(org-toodledo-folder-support-mode (quote heading))
  '(w3m-key-binding (quote info)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
