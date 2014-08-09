@@ -1,8 +1,3 @@
-(push "~/.emacs.d/site/org-toodledo" load-path)
-(require 'org-toodledo)
-(setq org-toodledo-userid "td51586a0210beb")
-;(setq org-toodledo-password "<toodled-password>")
-
 ;; Useful key bindings for org-mode
 (add-hook 'org-mode-hook
        (lambda ()
