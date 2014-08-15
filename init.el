@@ -131,8 +131,8 @@
 (require 'color-theme)
 (color-theme-initialize)
 ;; (color-theme-infodoc)
-(color-theme-bharadwaj-slate)
-
+;; (color-theme-bharadwaj-slate)
+(color-theme-taming-mr-arneson)
 (load-file "~/.emacs.d/site/graphviz-dot-mode.el")
 (add-hook 'find-file-hook (lambda()
                             (if (string= "dot" (file-name-extension
