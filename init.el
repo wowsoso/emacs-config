@@ -83,7 +83,7 @@
 
 (require 'zencoding-mode)
 (require 'expand-region)
-(require 'multiple-cursors)
+;; (require 'multiple-cursors)
 (require 'inline-string-rectangle)
 (require 'mark-more-like-this)
 
@@ -131,7 +131,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 ;; (color-theme-infodoc)
-;; (color-theme-bharadwaj-slate)
+ ;; (color-theme-bharadwaj-slate)
 (color-theme-taming-mr-arneson)
 (load-file "~/.emacs.d/site/graphviz-dot-mode.el")
 (add-hook 'find-file-hook (lambda()
