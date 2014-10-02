@@ -148,6 +148,7 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.stp\\'" . systemtap-mode))
+(add-to-list 'auto-mode-alist '("\\.stpm\\'" . systemtap-mode))
 (autoload 'systemtap-mode "systemtap-mode.el")
 (require 'yasnippet)
 
