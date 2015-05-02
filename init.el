@@ -130,9 +130,7 @@
 (add-load-path "color-theme")
 (require 'color-theme)
 (color-theme-initialize)
-;; (color-theme-infodoc)
- ;; (color-theme-bharadwaj-slate)
-(color-theme-taming-mr-arneson)
+(color-theme-arjen)
 (load-file "~/.emacs.d/site/graphviz-dot-mode.el")
 (add-hook 'find-file-hook (lambda()
                             (if (string= "dot" (file-name-extension
@@ -153,6 +151,23 @@
 (require 'yasnippet)
 
 
+;;; auto complete
+(add-to-list 'load-path "~/.emacs/site/auto-complete")
+(require 'auto-complete)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs/site/auto-complete")
+(ac-config-default)
+
 ;;; nasm
 (autoload 'nasm-mode "~/.emacs.d/nasm-mode.el" "" t)
 (add-to-list 'auto-mode-alist '("\\.\\(asm\\|s\\)$" . nasm-mode))
+
+;;; golang
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+(require 'go-mode-load)
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "C-c i") 'go-goto-imports)))
